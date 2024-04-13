@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("onboardingRequired3") var onboardingRequired: Bool = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            EmployeeListView(viewModel: EmployeeListViewModel(service: EmployeeService()))
+            .tabItem { Label("Employees", systemImage: "person.3")
+            }
+            SettingsView()
+                .tabItem { Label ("Settings", systemImage: "gear") }
         }
-        .padding()
+        .fullScreenCover(isPresented: $onboardingRequired) {
+            onboardingRequired = false
+        } content: {
+            OnboardingView(onboardingRequired: $onboardingRequired)
+        }
+        
     }
 }
 

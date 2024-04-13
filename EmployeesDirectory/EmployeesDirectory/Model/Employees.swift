@@ -22,4 +22,8 @@ struct Employee: Decodable, Identifiable{
 }
 
 
+struct EmployeesResponse: Decodable {
+    let employees: [Employee]
+}
+
 

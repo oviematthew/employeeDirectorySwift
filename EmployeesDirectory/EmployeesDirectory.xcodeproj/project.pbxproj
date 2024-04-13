@@ -11,6 +11,14 @@
 		EE79DE552BC8BF6800F3B860 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE542BC8BF6800F3B860 /* ContentView.swift */; };
 		EE79DE572BC8BF6900F3B860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE79DE562BC8BF6900F3B860 /* Assets.xcassets */; };
 		EE79DE5A2BC8BF6900F3B860 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE79DE592BC8BF6900F3B860 /* Preview Assets.xcassets */; };
+		EE79DE642BCA7FCD00F3B860 /* Employees.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE632BCA7FCD00F3B860 /* Employees.swift */; };
+		EE79DE682BCA843200F3B860 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE672BCA843200F3B860 /* SettingsView.swift */; };
+		EE79DE6B2BCA91E800F3B860 /* EmployeeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE6A2BCA91E800F3B860 /* EmployeeService.swift */; };
+		EE79DE6D2BCAA9FF00F3B860 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE6C2BCAA9FF00F3B860 /* OnboardingView.swift */; };
+		EE79DE6F2BCAAA2B00F3B860 /* EmployeeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE6E2BCAAA2B00F3B860 /* EmployeeListView.swift */; };
+		EE79DE712BCAAA4000F3B860 /* EmployeeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE702BCAAA4000F3B860 /* EmployeeDetailView.swift */; };
+		EE79DE732BCABDF900F3B860 /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE722BCABDF900F3B860 /* EmployeeListViewModel.swift */; };
+		EE79DE772BCAF0CF00F3B860 /* EmployeeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE762BCAF0CF00F3B860 /* EmployeeRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +27,14 @@
 		EE79DE542BC8BF6800F3B860 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE79DE562BC8BF6900F3B860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE79DE592BC8BF6900F3B860 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE79DE632BCA7FCD00F3B860 /* Employees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employees.swift; sourceTree = "<group>"; };
+		EE79DE672BCA843200F3B860 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EE79DE6A2BCA91E800F3B860 /* EmployeeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeService.swift; sourceTree = "<group>"; };
+		EE79DE6C2BCAA9FF00F3B860 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EE79DE6E2BCAAA2B00F3B860 /* EmployeeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListView.swift; sourceTree = "<group>"; };
+		EE79DE702BCAAA4000F3B860 /* EmployeeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailView.swift; sourceTree = "<group>"; };
+		EE79DE722BCABDF900F3B860 /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
+		EE79DE762BCAF0CF00F3B860 /* EmployeeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,10 @@
 		EE79DE512BC8BF6800F3B860 /* EmployeesDirectory */ = {
 			isa = PBXGroup;
 			children = (
+				EE79DE692BCA91CE00F3B860 /* Services */,
+				EE79DE622BCA7FAC00F3B860 /* ViewModel */,
+				EE79DE612BCA7FA400F3B860 /* Views */,
+				EE79DE602BCA7F9A00F3B860 /* Model */,
 				EE79DE522BC8BF6800F3B860 /* EmployeesDirectoryApp.swift */,
 				EE79DE542BC8BF6800F3B860 /* ContentView.swift */,
 				EE79DE562BC8BF6900F3B860 /* Assets.xcassets */,
@@ -65,6 +85,42 @@
 				EE79DE592BC8BF6900F3B860 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE79DE602BCA7F9A00F3B860 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE79DE632BCA7FCD00F3B860 /* Employees.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE79DE612BCA7FA400F3B860 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE79DE672BCA843200F3B860 /* SettingsView.swift */,
+				EE79DE6C2BCAA9FF00F3B860 /* OnboardingView.swift */,
+				EE79DE6E2BCAAA2B00F3B860 /* EmployeeListView.swift */,
+				EE79DE702BCAAA4000F3B860 /* EmployeeDetailView.swift */,
+				EE79DE762BCAF0CF00F3B860 /* EmployeeRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EE79DE622BCA7FAC00F3B860 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE79DE722BCABDF900F3B860 /* EmployeeListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EE79DE692BCA91CE00F3B860 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE79DE6A2BCA91E800F3B860 /* EmployeeService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE79DE682BCA843200F3B860 /* SettingsView.swift in Sources */,
+				EE79DE772BCAF0CF00F3B860 /* EmployeeRowView.swift in Sources */,
+				EE79DE6B2BCA91E800F3B860 /* EmployeeService.swift in Sources */,
+				EE79DE712BCAAA4000F3B860 /* EmployeeDetailView.swift in Sources */,
 				EE79DE552BC8BF6800F3B860 /* ContentView.swift in Sources */,
+				EE79DE6F2BCAAA2B00F3B860 /* EmployeeListView.swift in Sources */,
+				EE79DE642BCA7FCD00F3B860 /* Employees.swift in Sources */,
 				EE79DE532BC8BF6800F3B860 /* EmployeesDirectoryApp.swift in Sources */,
+				EE79DE732BCABDF900F3B860 /* EmployeeListViewModel.swift in Sources */,
+				EE79DE6D2BCAA9FF00F3B860 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

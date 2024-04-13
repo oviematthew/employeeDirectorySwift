@@ -9,7 +9,22 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Employee App")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+            Spacer()
+            Text("This app gets employee data from an api and parses the data onto a list and detail view, tap on Employees tab for more")
+                .multilineTextAlignment(.center)
+                .padding()
+                
+            Spacer()
+            Text("Matthew Ovie Enamuotor")
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+            Text("1146253")
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+
+        }
     }
 }
 

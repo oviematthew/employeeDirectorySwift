@@ -8,11 +8,96 @@
 import SwiftUI
 
 struct EmployeeDetailView: View {
+    var employee: Employee
+    @State private var largeImageUrl: URL?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if let url = largeImageUrl{
+                AsyncImage(url: url) {image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }placeholder: {
+                    ProgressView()
+                }
+                
+            }
+            
+            // Display employee details
+            HStack{
+                Text("Name:")
+                Spacer()
+                Text(employee.full_name)
+            }
+            .padding()
+            Divider()
+            
+            HStack{
+                Text("Phone:")
+                Spacer()
+                Text(employee.phone_number)
+            }
+            .padding()
+            Divider()
+            
+            HStack{
+                Text("Email:")
+                Spacer()
+                Text(employee.email_address)
+            }
+            .padding()
+            Divider()
+            
+            HStack{
+                Text("Bio:")
+                Spacer()
+                Text(employee.biography)
+            }
+            .padding()
+            Divider()
+            
+            HStack{
+                Text("Contract:")
+                Spacer()
+                Text(EmployeeType(rawValue: employee.employee_type)?.contractType ?? "")
+            }
+            .navigationBarTitleDisplayMode(/*@START_MENU_TOKEN@*/.automatic/*@END_MENU_TOKEN@*/)
+            .navigationBarTitle(employee.full_name)
+            .padding()
+            Divider()
+            
+        }
+        .onAppear {
+            // Set the large image URL
+            if let url = URL(string: employee.photo_url_large) {
+                largeImageUrl = url
+            }
+        }
+        .padding()
     }
 }
 
+enum EmployeeType: String {
+    case fullTime = "FULL_TIME"
+    case partTime = "PART_TIME"
+    case contractor = "CONTRACTOR"
+    
+    var contractType: String {
+        switch self {
+        case .fullTime:
+            return "Full Time"
+        case .partTime:
+            return "Part Time"
+        case .contractor:
+            return "Contractor"
+        }
+    
+    }
+    
+}
+
 #Preview {
-    EmployeeDetailView()
+    EmployeeDetailView(employee: Employee(uuid: "0d8fcc12-4d0c-425c-8355-390b312b909c", full_name: "Justine Mason", phone_number: "5553280123", email_address: "jmason.demo@squareup.com", biography: "Engineer on the Point of Sale team.", photo_url_small: "https://s3.amazonaws.com/sq-mobile-interview/photos/16c00560-6dd3-4af4-97a6-d4754e7f2394/small.jpg", photo_url_large: "https://s3.amazonaws.com/sq-mobile-interview/photos/16c00560-6dd3-4af4-97a6-d4754e7f2394/large.jpg", team: "Point of Sale", employee_type: "FULL_TIME"))
+    
 }
