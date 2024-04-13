@@ -10,10 +10,6 @@ import SwiftUI
 struct EmployeeListView: View {
     @State var viewModel: EmployeeListViewModel
     
-    init(viewModel: EmployeeListViewModel) {
-        self.viewModel = viewModel
-    }
-    
     var body: some View {
         NavigationStack {
             if viewModel.isLoading {
@@ -22,9 +18,15 @@ struct EmployeeListView: View {
             } else {
                 listContentView
                     .navigationTitle(viewModel.navTitle)
-                    .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search Employee")
                     .refreshable {
+                        //Get cached data
+                        viewModel.updateEmployeesWithCachedData()
+                        //Network fallback which will store updated values to cache again
                         await viewModel.fetchEmployees()
+                    }
+                    .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search For Employee")
+                    .onChange(of: viewModel.searchText){
+                        viewModel.filterEmployees()
                     }
             }
         }

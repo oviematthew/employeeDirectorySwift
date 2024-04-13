@@ -18,6 +18,7 @@ struct EmployeeDetailView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
                 }placeholder: {
                     ProgressView()
                 }
@@ -58,14 +59,19 @@ struct EmployeeDetailView: View {
             Divider()
             
             HStack{
-                Text("Contract:")
+                Text("Team:")
+                Spacer()
+                Text(employee.team)
+            }
+            .padding()
+            Divider()
+            
+            HStack{
+                Text("Type:")
                 Spacer()
                 Text(EmployeeType(rawValue: employee.employee_type)?.contractType ?? "")
             }
-            .navigationBarTitleDisplayMode(/*@START_MENU_TOKEN@*/.automatic/*@END_MENU_TOKEN@*/)
-            .navigationBarTitle(employee.full_name)
             .padding()
-            Divider()
             
         }
         .onAppear {
@@ -75,7 +81,9 @@ struct EmployeeDetailView: View {
             }
         }
         .padding()
+        
     }
+    
 }
 
 enum EmployeeType: String {
