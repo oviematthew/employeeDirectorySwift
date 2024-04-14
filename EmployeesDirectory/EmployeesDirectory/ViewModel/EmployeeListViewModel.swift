@@ -11,8 +11,9 @@ import Observation
 @Observable
 final class EmployeeListViewModel: ObservableObject{
     private let service: EmployeeService
-    private(set) var employees: [Employee] = []
-    private(set) var cachedEmployees: [Employee] = []
+    var employees: [Employee] = []
+    var filteredEmployees: [Employee] = []
+    private let userDefaults = UserDefaults.standard
     private(set) var isLoading: Bool = false
     var navTitle: String = ""
     var searchText: String = ""
@@ -28,21 +29,14 @@ final class EmployeeListViewModel: ObservableObject{
         do {
             isLoading = true
             employees = try await service.fetchEmployees()
-            
-            //add to cache
-            cachedEmployees = employees
             isLoading = false
         }catch{
             print("Error in ListVM: \(error)")
         }
     }
     
-    // Method to update employees array with cached data
-    func updateEmployeesWithCachedData() {
-        employees = cachedEmployees
-    }
     
-    // Search for employee
+    
     func filterEmployees() {
         searchResults = employees.filter({ $0.full_name.localizedCaseInsensitiveContains(searchText) })
     }

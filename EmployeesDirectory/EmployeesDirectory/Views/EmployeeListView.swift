@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmployeeListView: View {
-    @State var viewModel: EmployeeListViewModel
+    @StateObject var viewModel: EmployeeListViewModel
     
     var body: some View {
         NavigationStack {
@@ -17,17 +17,6 @@ struct EmployeeListView: View {
                     .progressViewStyle(CircularProgressViewStyle())
             } else {
                 listContentView
-                    .navigationTitle(viewModel.navTitle)
-                    .refreshable {
-                        //Get cached data
-                        viewModel.updateEmployeesWithCachedData()
-                        //Network fallback which will store updated values to cache again
-                        await viewModel.fetchEmployees()
-                    }
-                    .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search For Employee")
-                    .onChange(of: viewModel.searchText){
-                        viewModel.filterEmployees()
-                    }
             }
         }
         .onAppear() {
@@ -42,6 +31,14 @@ struct EmployeeListView: View {
         List(viewModel.employees) { employee in
             NavigationLink(destination: EmployeeDetailView(employee: employee)) {
                 EmployeeRowView(employee: employee)
+            }
+            .navigationTitle(viewModel.navTitle)
+            .refreshable {
+                await viewModel.fetchEmployees()
+            }
+            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search For Employee")
+            .onChange(of: viewModel.searchText){
+                viewModel.filterEmployees()
             }
             
         }

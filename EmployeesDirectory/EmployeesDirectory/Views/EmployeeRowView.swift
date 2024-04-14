@@ -21,6 +21,7 @@ struct EmployeeRowView: View {
                 }placeholder: {
                     ProgressView()
                 }
+                .clipShape(Circle())
                 .frame(width: 40, height: 40)
                                     
             }
